@@ -45,7 +45,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Rutas de archivos estáticos (no persistentes en Vercel)
 app.use("/qrs", express.static(path.join(__dirname, "qrs")));
-app.use("/public", express.static(path.join(__dirname, "public")));
+
+// Servir archivos estáticos directamente desde la raíz del dominio
+app.use(express.static(path.join(__dirname, "public")));
 
 // Endpoints principales
 app.post("/api/crearTarjeta", crearTarjeta);
