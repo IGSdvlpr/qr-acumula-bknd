@@ -31,7 +31,9 @@ export default async function crearTarjeta(req, res) {
     });
 
     // ✅ Generar QR de la url con solo el ID (sin token)
-    const qrData = `URL:${urlBase}/t/${idTarjeta}`;
+    //const qrData = `URL:${urlBase}/t/${idTarjeta}`;
+    const qrData = `https://qr-acumula-bknd-acumula-viajes.vercel.app/t/${idTarjeta}`;
+
 
     const qrBase64 = await QRCode.toDataURL(qrData, {
       width: 300,
